@@ -1,8 +1,8 @@
 class StudentsController < ApplicationController
   
   # before_action :set_student, only: [:show, :update, :destroy]
-  before_action :authenticate_user, only: [:show]
-  before_action :set_user, only: [:show]
+  before_action :authenticate_student, only: [:show]
+  before_action :set_student, only: [:show]
 
   # GET /students
   def index
@@ -49,6 +49,7 @@ class StudentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def student_params
-      params.require(:student).permit(:name, :email, :password_digest, :birth_date, :main_program)
+      # params.require(:student).permit(:name, :email, :password_digest, :birth_date, :main_program)
+      params.require(:student).permit(:name, :email, :password, :password_confirmation, :birth_date, :main_program)
     end
 end

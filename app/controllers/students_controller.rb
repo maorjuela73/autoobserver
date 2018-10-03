@@ -41,6 +41,11 @@ class StudentsController < ApplicationController
     @student.destroy
   end
 
+  # GET /students/current
+  def current
+    render json: current_student
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student
